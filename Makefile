@@ -9,7 +9,7 @@ $(BUILD_DIR_INIT):
 	touch $@
 
 $(VERSION_FILE): $(BUILD_DIR_INIT)
-	echo -n "$$(date -u +%Y%m%d%H%M%S)-$$(git rev-parse --abbrev-ref HEAD | tr /- __)-$$(git rev-parse --short HEAD)-local" >@
+	echo "$$(date -u +%Y%m%d%H%M%S)-$$(git rev-parse --abbrev-ref HEAD | tr /- __)-$$(git rev-parse --short HEAD)-local" >$@
 
 $(BUILD_NETRC_FILE): ~/.netrc $(BUILD_DIR_INIT)
 	cp $< $@
